@@ -1,25 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import {
-  Firestore,
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  updateDoc,
-  doc,
-  deleteDoc,
-  onSnapshot,
-} from '@angular/fire/firestore';
-import { Category } from '../models/category';
-import { ToastrService } from 'ngx-toastr';
-import { from, map, Observable } from 'rxjs';
+import {addDoc, collection, deleteDoc, doc, Firestore, onSnapshot, query, updateDoc,} from '@angular/fire/firestore';
+import {Category} from '../models/category';
+import {ToastrService} from 'ngx-toastr';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoriesService {
-  constructor(private fireStore: Firestore, private toastr: ToastrService) {}
+  constructor(private fireStore: Firestore, private toastr: ToastrService) {
+  }
 
   saveData(data: Category) {
     const docRef = collection(this.fireStore, 'categories');
@@ -41,7 +32,7 @@ export class CategoriesService {
         (snapshot) => {
           const data = snapshot.docs.map((doc) => ({
             id: doc.id,
-            data: { category: doc.data()['category'] },
+            data: {category: doc.data()['category']},
           }));
           observer.next(data);
         },
@@ -62,6 +53,7 @@ export class CategoriesService {
         this.toastr.error(error.message, 'Error');
       });
   }
+
   deleteData(id: string) {
     const docRef = doc(this.fireStore, 'categories', id);
     deleteDoc(docRef)
