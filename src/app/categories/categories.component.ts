@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { CategoriesService } from '../services/categories.service';
-import { Category } from '../models/category';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormsModule, NgForm} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {CategoriesService} from '../services/categories.service';
+import {Categories, Category} from '../models/category';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -12,16 +13,19 @@ import { Category } from '../models/category';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
-export class CategoriesComponent implements OnInit {
-  categories: { id: string; data: { category: string } }[] = [];
-  editCategory: { category: string } = { category: '' };
+export class CategoriesComponent implements OnInit, OnDestroy {
+  categories: Categories[] = [];
+  editCategory: Category = {category: ''};
   formStatus: string = 'Add';
   categoryId: string = '';
 
-  constructor(private categoryService: CategoriesService) {}
+  private dataCategories: Subscription | null = null;
+
+  constructor(private categoryService: CategoriesService) {
+  }
 
   ngOnInit(): void {
-    this.categoryService.loadData().subscribe((data) => {
+    this.dataCategories = this.categoryService.loadData().subscribe((data) => {
       this.categories = data;
     });
   }
@@ -40,7 +44,7 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
-  onEdit(editCategory: { category: string }, id: string) {
+  onEdit(editCategory: Category, id: string) {
     this.editCategory = editCategory;
     this.categoryId = id;
     this.formStatus = 'Edit';
@@ -48,5 +52,9 @@ export class CategoriesComponent implements OnInit {
 
   onDelete(id: string) {
     this.categoryService.deleteData(id);
+  }
+
+  ngOnDestroy(): void {
+    this.dataCategories?.unsubscribe();
   }
 }

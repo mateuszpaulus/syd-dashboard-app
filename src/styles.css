@@ -10,7 +10,7 @@
 
 body {
   font-family: "Roboto", arial, helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--body-text-color);
 }
 
@@ -33,17 +33,19 @@ body {
 .bg-theme {
   background-color: var(--primary-color);
 }
+
 .bg-secondary-theme {
   background-color: var(--secondary-color);
 }
+
 .text-theme-primary {
   color: var(--primary-color);
 }
+
 input[type="text"],
 input[type="email"] {
   height: 60px;
   padding-left: 20px;
-  font-size: 13px;
   width: 100%;
 }
 
