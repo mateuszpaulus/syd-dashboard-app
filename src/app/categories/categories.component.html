@@ -6,35 +6,34 @@
       </h3>
       <p class="text-center mb-5">You can add new categories from here</p>
       <form
-        action=""
-        class="form-inline text-center"
         #categoryForm="ngForm"
         (ngSubmit)="onSubmit(categoryForm)"
+        class="form-inline text-center"
       >
         <div class="col-md-10">
           <input
-            type="text"
-            class="form-control shadow-effect"
-            placeholder="Add new categories"
-            name="category"
-            [(ngModel)]="editCategory.category"
             #newCategoryForm="ngModel"
-            required
+            [(ngModel)]="editCategory.category"
             [ngClass]="{
               'is-invalid': newCategoryForm.touched && newCategoryForm.invalid
             }"
+            class="form-control shadow-effect"
+            name="category"
+            placeholder="Add new categories"
+            required
+            type="text"
           />
           <div
-            class="alert alert-danger mt-1"
             *ngIf="newCategoryForm.touched && newCategoryForm.invalid"
+            class="alert alert-danger mt-1"
           >
             This field is required
           </div>
         </div>
         <div class="col-md-2">
           <button
-            class="btn btn-block btn-info mb-2 btn-theme"
             [disabled]="newCategoryForm.invalid"
+            class="btn btn-block btn-info mb-2 btn-theme"
           >
             {{ formStatus }} category
           </button>
@@ -61,14 +60,14 @@
                 <td>{{ category.data.category }}</td>
                 <td>
                   <button
-                    class="btn btn-sm btn-warning"
                     (click)="onEdit(category.data, category.id)"
+                    class="btn btn-sm btn-warning"
                   >
                     Edit
                   </button>
                   <button
-                    class="btn btn-sm btn-danger ml-1"
                     (click)="onDelete(category.id)"
+                    class="btn btn-sm btn-danger ml-1"
                   >
                     Delete
                   </button>
