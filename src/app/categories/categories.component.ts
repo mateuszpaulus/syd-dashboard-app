@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormsModule, NgForm} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-import {CategoriesService} from '../services/categories.service';
-import {Categories, Category} from '../models/category';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { CategoriesService } from '../services/categories.service';
+import { Categories, Category } from '../models/category';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -15,14 +15,13 @@ import {Subscription} from 'rxjs';
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
   categories: Categories[] = [];
-  editCategory: Category = {category: ''};
+  editCategory: Category = { category: '' };
   formStatus: string = 'Add';
   categoryId: string = '';
 
   private dataCategories: Subscription | null = null;
 
-  constructor(private categoryService: CategoriesService) {
-  }
+  constructor(private categoryService: CategoriesService) {}
 
   ngOnInit(): void {
     this.dataCategories = this.categoryService.loadData().subscribe((data) => {
