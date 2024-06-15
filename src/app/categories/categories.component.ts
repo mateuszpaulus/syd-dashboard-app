@@ -30,7 +30,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    let docCategoryDetails: Category = {
+    const docCategoryDetails: Category = {
       category: form.value.category,
     };
     if (this.formStatus === 'Add') {

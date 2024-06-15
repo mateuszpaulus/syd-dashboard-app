@@ -24,7 +24,7 @@ export class CategoriesService {
     const docRef = collection(this.fireStore, 'categories');
 
     addDoc(docRef, data)
-      .then((docRef) => {
+      .then(() => {
         this.toastr.success('Category added successfully', 'Success');
       })
       .catch((error) => {

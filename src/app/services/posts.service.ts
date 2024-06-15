@@ -61,7 +61,7 @@ export class PostsService {
   saveData(postData: Post) {
     const docRef = collection(this.fireStore, 'posts');
     addDoc(docRef, postData)
-      .then((docRef) => {
+      .then(() => {
         this.toastr.success('Category added successfully', 'Success');
       })
       .catch((error) => {
@@ -113,7 +113,7 @@ export class PostsService {
 
   updateData(id: string, postData: Post) {
     const docRef = doc(this.fireStore, 'posts', id);
-    const updatedData: { [key: string]: any } = {
+    const updatedData: Partial<Post> = {
       ...postData,
     };
     updateDoc(docRef, updatedData)
