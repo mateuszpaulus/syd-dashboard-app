@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './layouts/header/header.component';
-import { FooterComponent } from './layouts/footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {HeaderComponent} from './layouts/header/header.component';
+import {FooterComponent} from './layouts/footer/footer.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +13,5 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'syd-dashboard-app';
+  title = 'your-doubts-dashboard-app';
 }

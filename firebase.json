@@ -1,7 +1,7 @@
 {
   "hosting": {
-    "target": "yourDoubtsDashboard",
-    "public": "dist/syd-dashboard-app/browser",
+    "site": "your-doubts-dashboard",
+    "public": "dist/your-doubts-dashboard-app/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
