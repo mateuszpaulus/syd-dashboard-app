@@ -1,6 +1,8 @@
-# YourDoubtsDashboardApp
+# YourDoubtsDashboardAngularFirebaseApp
 
 Check it: https://your-doubts-dashboard.web.app/login
+
+email: paulus.m.mateusz@gmail.com password: password
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
