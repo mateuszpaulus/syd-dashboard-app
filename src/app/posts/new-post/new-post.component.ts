@@ -1,4 +1,4 @@
-import { Category } from './../../models/category';
+
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
@@ -106,7 +106,7 @@ export class NewPostComponent implements OnInit, OnDestroy {
 
   onTitleChange($event: Event) {
     const title = ($event.target as HTMLInputElement).value;
-    let link = title.replace(/\s/g, '-').toLowerCase();
+    const link = title.replace(/\s/g, '-').toLowerCase();
     this.formControl['link'].setValue(link);
   }
 
