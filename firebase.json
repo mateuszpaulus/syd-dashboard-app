@@ -1,1 +1,11 @@
-{}
+{
+  "hosting": {
+    "target": "yourDoubtsDashboard",
+    "public": "dist/syd-dashboard-app/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

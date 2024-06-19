@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "syd-app-d6715"
+  },
+  "targets": {
+    "syd-app-d6715": {
+      "hosting": {
+        "yourDoubtsDashboard": [
+          "your-doubts-dashboard"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
